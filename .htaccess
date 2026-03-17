@@ -1,0 +1,95 @@
+RewriteEngine On
+Options -Indexes
+
+# Security Headers
+Header set X-Frame-Options "SAMEORIGIN"
+Header set X-Content-Type-Options "nosniff"
+Header set X-XSS-Protection "1; mode=block"
+Header set Referrer-Policy "strict-origin-when-cross-origin"
+
+# Prevent access to sensitive files
+<FilesMatch "\.(sql|log|env|md|txt|sh|git)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+<FilesMatch "^(config|includes|mail|database)">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Force HTTPS (enable in production)
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Home
+RewriteRule ^$ index.php [L]
+
+# About
+RewriteRule ^about$ pages/about.php [L]
+
+# Services
+RewriteRule ^services$ pages/services/index.php [L]
+RewriteRule ^services/custom-software$ pages/services/custom-software.php [L]
+RewriteRule ^services/web-development$ pages/services/web-development.php [L]
+RewriteRule ^services/system-integration$ pages/services/system-integration.php [L]
+RewriteRule ^services/ai-solutions$ pages/services/ai-solutions.php [L]
+RewriteRule ^services/consulting$ pages/services/consulting.php [L]
+RewriteRule ^services/cloud-infrastructure$ pages/services/cloud-infrastructure.php [L]
+RewriteRule ^services/mobile-development$ pages/services/mobile-development.php [L]
+RewriteRule ^services/cybersecurity$ pages/services/cybersecurity.php [L]
+
+# Products
+RewriteRule ^products$ pages/products/index.php [L]
+RewriteRule ^products/([a-z0-9\-]+)$ pages/products/$1.php [L,QSA]
+
+# AI Hub
+RewriteRule ^ai-hub$ pages/ai-hub/index.php [L]
+RewriteRule ^ai-hub/([a-z0-9\-]+)$ pages/ai-hub/$1.php [L,QSA]
+
+# Innovation Lab
+RewriteRule ^innovation-lab$ pages/innovation-lab/index.php [L]
+RewriteRule ^innovation-lab/([a-z0-9\-]+)$ pages/innovation-lab/$1.php [L,QSA]
+
+# Demo
+RewriteRule ^demo$ pages/demo/index.php [L]
+RewriteRule ^demo/([a-z0-9\-]+)$ pages/demo/$1.php [L,QSA]
+
+# Consultation
+RewriteRule ^consultation$ pages/consultation/index.php [L]
+RewriteRule ^consultation/([a-z0-9\-]+)$ pages/consultation/$1.php [L,QSA]
+
+# Community
+RewriteRule ^community$ pages/community/index.php [L]
+RewriteRule ^community/post/([0-9]+)$ pages/community/post.php?id=$1 [L,QSA]
+RewriteRule ^community/new$ pages/community/new-post.php [L]
+RewriteRule ^community/profile/([0-9]+)$ pages/community/profile.php?id=$1 [L,QSA]
+RewriteRule ^community/edit-post/([0-9]+)$     pages/community/edit-post.php?id=$1 [L,QSA]
+RewriteRule ^api/community-like$               api/community-like.php [L]
+
+# Pricing, Contact, Blog, etc.
+RewriteRule ^pricing$ pages/pricing.php [L]
+RewriteRule ^contact$ pages/contact.php [L]
+RewriteRule ^blog$ pages/blog.php [L]
+RewriteRule ^blog/([a-z0-9\-]+)$ pages/blog-post.php?slug=$1 [L,QSA]
+RewriteRule ^faq$ pages/faq.php [L]
+RewriteRule ^privacy$ pages/privacy.php [L]
+RewriteRule ^terms$ pages/terms.php [L]
+RewriteRule ^sitemap.xml$ pages/sitemap.php [L]
+
+# Portal
+RewriteRule ^portal$ pages/portal/dashboard.php [L]
+RewriteRule ^portal/login$ pages/portal/login.php [L]
+RewriteRule ^portal/register$ pages/portal/register.php [L]
+RewriteRule ^portal/([a-z0-9\-]+)$ pages/portal/$1.php [L,QSA]
+
+# Admin
+RewriteRule ^admin$ admin/index.php [L]
+RewriteRule ^admin/login$ admin/login.php [L]
+RewriteRule ^admin/([a-z0-9\-]+)$ admin/$1.php [L,QSA]
+
+# API
+RewriteRule ^api/([a-z0-9\-]+)$ api/$1.php [L,QSA]

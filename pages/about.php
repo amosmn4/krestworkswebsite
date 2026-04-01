@@ -252,7 +252,7 @@ $page_description = 'Learn about Krestworks Solutions — our story, mission, vi
         Based in <strong>Nairobi, Kenya</strong> — serving clients across East Africa and beyond.
       </p>
       <div style="display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;">
-        <span style="font-size:0.8rem;color:var(--kw-text-muted);"><i class="fa-solid fa-globe" style="color:var(--kw-primary);"></i> <?= COMPANY_WEBSITE ?? 'www.krestworks.com' ?></span>
+        <span style="font-size:0.8rem;color:var(--kw-text-muted);"><i class="fa-solid fa-globe" style="color:var(--kw-primary);"></i> <?= defined('COMPANY_WEBSITE') ? COMPANY_WEBSITE : 'www.krestworks.com' ?></span>
         <span style="font-size:0.8rem;color:var(--kw-text-muted);"><i class="fa-solid fa-envelope" style="color:var(--kw-primary);"></i> <?= COMPANY_EMAIL ?></span>
         <span style="font-size:0.8rem;color:var(--kw-text-muted);"><i class="fa-solid fa-phone" style="color:var(--kw-primary);"></i> <?= COMPANY_PHONE ?></span>
       </div>

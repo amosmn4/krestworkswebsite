@@ -166,7 +166,7 @@
         <a href="<?= url('privacy') ?>">Privacy Policy</a>
         <a href="<?= url('terms') ?>">Terms of Service</a>
         <a href="<?= url('faq') ?>">FAQ</a>
-        <a href="<?= url('sitemap.xml') ?>">Sitemap</a>
+        <a href="https://system.krestworks.com" target="_blank" rel="noopener noreferrer">HRMS</a>
       </nav>
     </div>
   </div>

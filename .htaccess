@@ -70,9 +70,29 @@ RewriteRule ^community/profile/([0-9]+)$ pages/community/profile.php?id=$1 [L,QS
 RewriteRule ^community/edit-post/([0-9]+)$     pages/community/edit-post.php?id=$1 [L,QSA]
 RewriteRule ^api/community-like$               api/community-like.php [L]
 
+# ATS — Careers public routes
+RewriteRule ^careers$ pages/careers/index.php [L]
+RewriteRule ^careers/application-success$ pages/careers/success.php [L]
+RewriteRule ^careers/([a-z0-9\-]+)$ pages/careers/job-detail.php?slug=$1 [L,QSA]
+RewriteRule ^careers/([a-z0-9\-]+)/apply$ pages/careers/apply.php?slug=$1 [L,QSA]
+# ATS — API
+RewriteRule ^api/submit-application$ api/submit-application.php [L]
+RewriteRule ^api/save-app-draft$ api/save-app-draft.php [L]
+
+# ATS — Portal
+RewriteRule ^portal/applications$ pages/portal/applications.php [L]
+
+# ATS — Admin recruitment
+RewriteRule ^admin/recruitment$ admin/recruitment/index.php [L]
+RewriteRule ^admin/recruitment/applications$ admin/recruitment/applications.php [L]
+RewriteRule ^admin/recruitment/jobs$ admin/recruitment/jobs.php [L]
+RewriteRule ^admin/recruitment/reports$ admin/recruitment/reports.php [L]
+RewriteRule ^admin/recruitment/download$ admin/recruitment/download.php [L,QSA]
+
 # Pricing, Contact, Blog, etc.
 RewriteRule ^pricing$ pages/pricing.php [L]
 RewriteRule ^contact$ pages/contact.php [L]
+RewriteRule ^careers$ pages/careers.php [L]
 RewriteRule ^blog$ pages/blog.php [L]
 RewriteRule ^blog/([a-z0-9\-]+)$ pages/blog-post.php?slug=$1 [L,QSA]
 RewriteRule ^faq$ pages/faq.php [L]

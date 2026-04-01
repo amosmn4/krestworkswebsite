@@ -10,7 +10,7 @@ require_once __DIR__ . '/../includes/db.php';
 require_once __DIR__ . '/../includes/auth.php';
 require_once __DIR__ . '/../includes/csrf.php';
 
-//session_name(SESSION_NAME);
+session_name(SESSION_NAME);
 if (session_status() === PHP_SESSION_NONE) session_start();
 
 // Admin-only access
@@ -42,16 +42,17 @@ $admin_active = $admin_active ?? '';
 $adminInitials = strtoupper(substr($adminUser['name'], 0, 2));
 
 $navItems = [
-    ['dashboard',  'fa-gauge-high',     'Dashboard',   'admin',                0],
-    ['inquiries',  'fa-inbox',          'Inquiries',   'admin/inquiries',      $newInquiries],
-    ['users',      'fa-users',          'Users',       'admin/users',          $newUsers],
-    ['products',   'fa-boxes-stacking', 'Products',    'admin/products',       0],
-    ['ai-tools',   'fa-robot',          'AI Tools',    'admin/ai-tools',       0],
-    ['community',  'fa-comments',       'Community',   'admin/community',      0],
-    ['support',    'fa-headset',        'Support',     'admin/support',        $openTickets],
-    ['analytics',  'fa-chart-bar',      'Analytics',   'admin/analytics',      0],
-    ['content',    'fa-newspaper',      'Content/Blog','admin/content',        0],
-    ['settings',   'fa-sliders',        'Settings',    'admin/settings',       0],
+    ['dashboard',    'fa-gauge-high',     'Dashboard',    'admin',                           0],
+    ['inquiries',    'fa-inbox',          'Inquiries',    'admin/inquiries',                 $newInquiries],
+    ['users',        'fa-users',          'Users',        'admin/users',                     $newUsers],
+    ['products',     'fa-boxes-stacking', 'Products',     'admin/products',                  0],
+    ['ai-tools',     'fa-robot',          'AI Tools',     'admin/ai-tools',                  0],
+    ['recruitment',  'fa-user-tie',       'Recruitment',  'admin/recruitment/applications',  0],
+    ['community',    'fa-comments',       'Community',    'admin/community',                 0],
+    ['support',      'fa-headset',        'Support',      'admin/support',                   $openTickets],
+    ['analytics',    'fa-chart-bar',      'Analytics',    'admin/analytics',                 0],
+    ['content',      'fa-newspaper',      'Content/Blog', 'admin/content',                   0],
+    ['settings',     'fa-sliders',        'Settings',     'admin/settings',                  0],
 ];
 ?>
 <!DOCTYPE html>

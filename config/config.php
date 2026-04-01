@@ -66,9 +66,10 @@ define('SOCIAL_INSTAGRAM', 'https://instagram.com/krestworks');
 
 // Company Info
 define('COMPANY_EMAIL', 'info@krestworks.com');
+define('COMPANY_WEBSITE', 'https://krestworks.com');
 define('COMPANY_PHONE', '+254 711 903 289');
 define('COMPANY_ADDRESS', 'Nairobi, Kenya');
-define('COMPANY_FOUNDED', '2024');
+define('COMPANY_FOUNDED', '2025');
 
 // Paths
 define('ROOT_PATH', dirname(__DIR__));
